@@ -47,6 +47,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             color: #444;
+            margin-bottom: 30px;
         }
 
         .description p {
@@ -74,21 +75,4 @@
 <body>
     <h1>Oso Animado Interactivo</h1>
     <div class="model-container">
-        <model-viewer src="oso.glb" autoplay camera-controls shadow-intensity="1"></model-viewer>
-    </div>
-
-    <div class="description">
-        <h2>¿Cómo lo hice?</h2>
-        <p>
-            Este oso animado fue creado usando **Blender 3D**, donde modelé y texturicé el oso, lo animé para que interactúe con la paleta y lo exporté como un archivo `.glb`.
-        </p>
-        <p>
-            Luego, utilicé **HTML** y el componente **<model-viewer>** para integrar el modelo 3D en la web, permitiendo una experiencia interactiva.
-        </p>
-        <p>
-            ¡Todo está diseñado para que sea fácil de ver y jugar con el oso, mientras disfrutas de un diseño moderno y kawaii!
-        </p>
-        <a href="#!" class="cute-button">¡Descubre más!</a>
-    </div>
-</body>
-</html>
+        <model-viewer src="oso.glb" autoplay camera-controls shadow-intensity="1" exposure="1" ambient-
