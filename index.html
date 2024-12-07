@@ -1,35 +1,94 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oso Animado</title>
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
     <style>
         body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff; /* Fondo suave */
+            color: #333;
             margin: 0;
             padding: 0;
-            overflow: hidden; /* Elimina el scroll */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #ff69b4; /* Rosa kawaii */
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .model-container {
+            margin-top: 20px;
         }
 
         model-viewer {
-            width: 100vw;  /* Usamos todo el ancho de la ventana */
-            height: 100vh; /* Usamos toda la altura de la ventana */
+            width: 300px;
+            height: 300px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .description {
+            margin-top: 30px;
+            font-size: 18px;
+            line-height: 1.6;
+            text-align: center;
+            max-width: 600px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            color: #444;
+        }
+
+        .description p {
+            margin-bottom: 10px;
+        }
+
+        .cute-button {
+            background-color: #ff69b4; /* Rosa kawaii */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .cute-button:hover {
+            background-color: #ff1493; /* Un rosa más fuerte al pasar el mouse */
+            transform: scale(1.1);
         }
     </style>
 </head>
 <body>
+    <h1>Oso Animado Interactivo</h1>
+    <div class="model-container">
+        <model-viewer src="oso.glb" autoplay camera-controls shadow-intensity="1"></model-viewer>
+    </div>
 
-    <model-viewer src="oso.glb"
-                  autoplay
-                  camera-controls
-                  shadow-intensity="1"
-                  exposure="1"
-                  min-camera-orbit="auto auto 2m"   
-                  max-camera-orbit="auto auto 10m"  
-                  camera-orbit="0deg 75deg auto"     
-                  field-of-view="50deg"> 
-    </model-viewer>
-
+    <div class="description">
+        <h2>¿Cómo lo hice?</h2>
+        <p>
+            Este oso animado fue creado usando **Blender 3D**, donde modelé y texturicé el oso, lo animé para que interactúe con la paleta y lo exporté como un archivo `.glb`.
+        </p>
+        <p>
+            Luego, utilicé **HTML** y el componente **<model-viewer>** para integrar el modelo 3D en la web, permitiendo una experiencia interactiva.
+        </p>
+        <p>
+            ¡Todo está diseñado para que sea fácil de ver y jugar con el oso, mientras disfrutas de un diseño moderno y kawaii!
+        </p>
+        <a href="#!" class="cute-button">¡Descubre más!</a>
+    </div>
 </body>
 </html>
