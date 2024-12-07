@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oso Animado</title>
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f0f8ff; /* Fondo suave */
+            background-color: #f0f8ff;
             color: #333;
             margin: 0;
             padding: 0;
@@ -17,25 +16,29 @@
             flex-direction: column;
             align-items: center;
         }
-
+    
         h1 {
             font-size: 36px;
             color: #ff69b4; /* Rosa kawaii */
             text-align: center;
             margin-top: 20px;
         }
-
+    
         .model-container {
             margin-top: 20px;
+            /* Eliminamos la sombra */
+            border-radius: 15px;
+            overflow: hidden; /* Evita que los bordes del modelo sobresalgan */
         }
-
+    
         model-viewer {
             width: 300px;
             height: 300px;
             border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            /* Elimina la sombra que podría interferir con el modelo */
+            box-shadow: none;
         }
-
+    
         .description {
             margin-top: 30px;
             font-size: 18px;
@@ -49,13 +52,13 @@
             color: #444;
             margin-bottom: 30px;
         }
-
+    
         .description p {
             margin-bottom: 10px;
         }
-
+    
         .cute-button {
-            background-color: #ff69b4; /* Rosa kawaii */
+            background-color: #ff69b4;
             color: white;
             padding: 10px 20px;
             border-radius: 25px;
@@ -65,12 +68,13 @@
             margin-top: 20px;
             transition: all 0.3s ease;
         }
-
+    
         .cute-button:hover {
-            background-color: #ff1493; /* Un rosa más fuerte al pasar el mouse */
+            background-color: #ff1493;
             transform: scale(1.1);
         }
     </style>
+    
 </head>
 <body>
     <h1>Oso Animado Interactivo</h1>
