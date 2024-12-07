@@ -1,44 +1,30 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oso Animado</title>
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <style>
-        /* Estilos básicos para la página */
         body {
-            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
-            padding: 0;
-            background-color: #f0f8ff;
-            text-align: center;
+            background-color: #f0f0f0;
         }
-
-        h1 {
-            color: #ff69b4;
-            margin-top: 20px;
-        }
-
         model-viewer {
             width: 100%;
-            height: 600px; /* Asegúrate de que el modelo sea visible */
+            height: 100%;
+            max-width: 800px;
+            max-height: 600px;
         }
     </style>
 </head>
 <body>
-    <h1>Oso Animado Interactivo</h1>
-
-    <!-- Carga el modelo 3D del oso -->
-    <model-viewer src="oso.glb" 
-                  autoplay 
-                  camera-controls 
-                  shadow-intensity="1" 
-                  exposure="1" 
-                  ambient-occlusion="true" 
-                  shadow-softness="0.5">
+    <model-viewer src="oso.glb" autoplay ar camera-controls 
+        animation-name="Animation" shadow-intensity="1">
     </model-viewer>
-
-    <p>¡Interactúa con el oso!</p>
 </body>
 </html>
