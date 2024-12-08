@@ -71,6 +71,59 @@
             background-color: #ff1493; /* Un rosa más fuerte al pasar el mouse */
             transform: scale(1.1);
         }
+
+        .comments-section {
+            margin-top: 40px;
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .comments-section h2 {
+            color: #ff69b4;
+        }
+
+        .comments-list {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        .comments-list li {
+            background-color: #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .comment-box {
+            margin-top: 20px;
+        }
+
+        .comment-box textarea {
+            width: 90%;
+            max-width: 500px;
+            height: 80px;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .comment-box button {
+            background-color: #ff69b4;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            margin-top: 10px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .comment-box button:hover {
+            background-color: #ff1493;
+        }
     </style>
 </head>
 <body>
@@ -93,5 +146,53 @@
         </p>
         <a href="#!" class="cute-button">¡Descubre más!</a>
     </div>
+
+    <div class="comments-section">
+        <h2>Deja tu mensaje</h2>
+        <ul class="comments-list" id="commentsList"></ul>
+        <div class="comment-box">
+            <textarea id="commentInput" placeholder="Escribe tu mensaje aquí..."></textarea>
+            <br>
+            <button onclick="addComment()">Publicar</button>
+        </div>
+    </div>
+
+    <script>
+        const commentsList = document.getElementById('commentsList');
+        const commentInput = document.getElementById('commentInput');
+
+        // Cargar comentarios previos de Local Storage
+        function loadComments() {
+            const comments = JSON.parse(localStorage.getItem('comments')) || [];
+            comments.forEach(comment => addCommentToDOM(comment));
+        }
+
+        // Agregar comentario al DOM
+        function addCommentToDOM(comment) {
+            const li = document.createElement('li');
+            li.textContent = comment;
+            commentsList.appendChild(li);
+        }
+
+        // Agregar comentario nuevo
+        function addComment() {
+            const comment = commentInput.value.trim();
+            if (comment) {
+                addCommentToDOM(comment);
+                saveComment(comment);
+                commentInput.value = ''; // Limpiar input
+            }
+        }
+
+        // Guardar comentario en Local Storage
+        function saveComment(comment) {
+            const comments = JSON.parse(localStorage.getItem('comments')) || [];
+            comments.push(comment);
+            localStorage.setItem('comments', JSON.stringify(comments));
+        }
+
+        // Cargar comentarios al inicio
+        loadComments();
+    </script>
 </body>
 </html>
