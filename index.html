@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oso Animado</title>
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;700&display=swap" rel="stylesheet">
 
     <style>
         body {
-            font-family: 'Comic Neue', cursive;
+            font-family: 'Nunito', sans-serif;
             background-color: #f0f8ff; /* Fondo suave */
             color: #333;
             margin: 0;
@@ -64,70 +64,17 @@
             display: inline-block;
             margin-top: 20px;
             transition: all 0.3s ease;
-            font-family: 'Comic Neue', cursive; /* Botón con la misma fuente */
+            font-family: 'Nunito', sans-serif; /* Botón con la misma fuente */
         }
 
         .cute-button:hover {
             background-color: #ff1493; /* Un rosa más fuerte al pasar el mouse */
             transform: scale(1.1);
         }
-
-        .comments-section {
-            margin-top: 40px;
-            width: 90%;
-            max-width: 600px;
-            text-align: center;
-        }
-
-        .comments-section h2 {
-            color: #ff69b4;
-        }
-
-        .comments-list {
-            list-style-type: none;
-            padding: 0;
-            margin-top: 10px;
-        }
-
-        .comments-list li {
-            background-color: #fff;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .comment-box {
-            margin-top: 20px;
-        }
-
-        .comment-box textarea {
-            width: 90%;
-            max-width: 500px;
-            height: 80px;
-            border-radius: 10px;
-            padding: 10px;
-            font-size: 16px;
-        }
-
-        .comment-box button {
-            background-color: #ff69b4;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 10px;
-            margin-top: 10px;
-            border: none;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .comment-box button:hover {
-            background-color: #ff1493;
-        }
     </style>
 </head>
 <body>
-    <h1>Oso Animado Interactivo</h1>
+    <h1> </h1>
     <div class="model-container">
         <model-viewer src="oso.glb" autoplay ar camera-controls 
         animation-name="Animation" shadow-intensity="1"></model-viewer>
@@ -136,63 +83,13 @@
     <div class="description">
         <h2>¿Cómo lo hice?</h2>
         <p>
-            Este oso animado fue creado usando **Blender 3D**, donde modelé y texturicé el oso, lo animé para que interactúe con la paleta y lo exporté como un archivo `.glb`.
+            Este oso animado fue creado usando Blender 3D, donde lo modelé y lo animé para que interactúe con la paleta. Luego lo exporté como un archivo .glb.
         </p>
         <p>
-            Luego, utilicé **HTML** y el componente "model viewer" para integrar el modelo 3D en la web, permitiendo una experiencia interactiva.
+            Utilicé HTML y el componente "model viewer" para integrar el modelo 3D en la web, permitiendo una experiencia interactiva.
         </p>
-        <p>
-            ¡Todo está diseñado para que sea fácil de ver y jugar con el oso, mientras disfrutas de un diseño moderno y kawaii!
-        </p>
+        
         <a href="#!" class="cute-button">¡Descubre más!</a>
     </div>
-
-    <div class="comments-section">
-        <h2>Deja tu mensaje</h2>
-        <ul class="comments-list" id="commentsList"></ul>
-        <div class="comment-box">
-            <textarea id="commentInput" placeholder="Escribe tu mensaje aquí..."></textarea>
-            <br>
-            <button onclick="addComment()">Publicar</button>
-        </div>
-    </div>
-
-    <script>
-        const commentsList = document.getElementById('commentsList');
-        const commentInput = document.getElementById('commentInput');
-
-        // Cargar comentarios previos de Local Storage
-        function loadComments() {
-            const comments = JSON.parse(localStorage.getItem('comments')) || [];
-            comments.forEach(comment => addCommentToDOM(comment));
-        }
-
-        // Agregar comentario al DOM
-        function addCommentToDOM(comment) {
-            const li = document.createElement('li');
-            li.textContent = comment;
-            commentsList.appendChild(li);
-        }
-
-        // Agregar comentario nuevo
-        function addComment() {
-            const comment = commentInput.value.trim();
-            if (comment) {
-                addCommentToDOM(comment);
-                saveComment(comment);
-                commentInput.value = ''; // Limpiar input
-            }
-        }
-
-        // Guardar comentario en Local Storage
-        function saveComment(comment) {
-            const comments = JSON.parse(localStorage.getItem('comments')) || [];
-            comments.push(comment);
-            localStorage.setItem('comments', JSON.stringify(comments));
-        }
-
-        // Cargar comentarios al inicio
-        loadComments();
-    </script>
 </body>
 </html>
